@@ -21,6 +21,10 @@ def checkColumn(board, weapon):
 
 
 def checkAcross(board, weapon):
+    if board[0][0] == board[1][1] == board[2][2] != 'empty':
+        return True
+    if board[0][2] == board[1][1] == board[2][0] != 'empty':
+        return True
     return False
 
 

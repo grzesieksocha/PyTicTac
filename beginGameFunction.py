@@ -6,8 +6,14 @@ def beginGame():
     """Decide who is circle and who is cross."""
     playerInfo = {}
     weapons = {'circle', 'cross'}
-    playerInfo['nick1'] = input('Player1 choose your nick: ')
-    playerInfo['nick2'] = input('Player2 choose your nick: ')
+    playerInfo['nick1'] = ''
+    playerInfo['nick2'] = ''
+
+    while playerInfo['nick1'] == '':
+        playerInfo['nick1'] = input('Player1 choose your nick: ')
+    while playerInfo['nick2'] == '':
+        playerInfo['nick2'] = input('Player2 choose your nick: ')
+
     playerInfo['starter'] = random.randint(1, 2)
     starterNick = playerInfo['nick' + str(playerInfo['starter'])]
     print(starterNick + ' you begin!')
@@ -17,7 +23,6 @@ def beginGame():
         if chosenWeapon != 'circle' and chosenWeapon != 'cross':
             print('Naaa, you can\'t choose ' + chosenWeapon + '! Try again...')
             continue
-
         weaponChosen = True
         playerInfo['weapon' + str(playerInfo['starter'])] = chosenWeapon
         weapons.remove(chosenWeapon)
@@ -25,5 +30,4 @@ def beginGame():
             playerInfo['weapon2'] = weapons.pop()
         else:
             playerInfo['weapon1'] = weapons.pop()
-
     return playerInfo

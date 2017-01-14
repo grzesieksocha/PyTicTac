@@ -3,7 +3,9 @@
 
 def drawBoard(board):
     """Drawing a board."""
-    for row in board:
+    print('   1 2 3')
+    for rowNumber, row in enumerate(board):
+        print(str(rowNumber + 1) + ' ', end='')
         for cell in row:
             if cell == 'empty':
                 print('| ', end='')
